@@ -2,8 +2,11 @@ import chess
 import chess.engine
 import random
 from datetime import datetime
-def userMoves(): 
-    return
+def userMoves(board):
+    move = input("type move in UCI: ")
+    move = chess.Move.from_uci(move) 
+    board.push(move)
+    return board.push(move)
 def botMoves():
     return
 def main(): 
@@ -13,6 +16,7 @@ def main():
     print("Time: " , datetime.today().strftime('%Y-%m-%d %H:%M:%S'))
     starting_color = input("Computer Player? (w=white/b=black): ")
     starting_FEN = input("Starting FEN position? (hit ENTER for standard starting position): ")
+    userMoves(board)
 
 def print_board(board):
     print("Current Board:")
@@ -20,3 +24,4 @@ def print_board(board):
     print("FEN position:", board.fen())
 
 main()
+
