@@ -2,7 +2,10 @@ import chess
 import chess.engine
 import random
 from datetime import datetime
-
+def userMoves(): 
+    return
+def botMoves():
+    return
 def main(): 
     board = chess.Board()
     print(board)
