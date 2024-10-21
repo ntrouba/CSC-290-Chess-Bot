@@ -19,4 +19,7 @@ def print_board(board):
     print(board)
     print("FEN position:", board.fen())
 
+def user_input(board, player_color):
+    
+
 main()
