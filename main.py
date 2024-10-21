@@ -23,5 +23,18 @@ def print_board(board):
     print(board)
     print("FEN position:", board.fen())
 
+def user_input(board, player_color):
+     while True:
+        move_input = input(f"{player_color.capitalize()}: ").strip()
+         try:
+                if move in board.legal_moves:
+                return move
+            else:
+                print("Invalid move. Please enter a legal move in UCI format.")
+        except ValueError:
+            print("Invalid input format. Please enter move in UCI format (e.g., e2e4).")
+
+    
+
 main()
 
