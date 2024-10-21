@@ -11,4 +11,9 @@ def main():
     starting_color = input("Computer Player? (w=white/b=black): ")
     starting_FEN = input("Starting FEN position? (hit ENTER for standard starting position): ")
 
+def print_board(board):
+    print("Current Board:")
+    print(board)
+    print("FEN position:", board.fen())
+
 main()
