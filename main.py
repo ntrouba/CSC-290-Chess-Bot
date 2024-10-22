@@ -7,8 +7,14 @@ def userMoves(board):
     move = chess.Move.from_uci(move) 
     board.push(move)
     return board.push(move)
+    
 def botMoves():
-    return
+    capture_moves = [move for move in board.legal_moves if board.is_capture(move)]
+    if capture_moves:
+        return random.choice(capture_moves)
+    else:
+    return random.choice(list(board.legal_moves))
+    
 def main(): 
     board = chess.Board()
     #print(board)
