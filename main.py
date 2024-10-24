@@ -15,14 +15,14 @@ def print_board(board):
     print("FEN position:", board.fen())
 
 def update_board(board, move): 
-    board.push(move)  # Push the move directly onto the board
+    board.push(move)  
     print_board(board)
 
 def user_input(board):
     while True:
         move_input = input("Your move: ").strip()
         try:
-            move = chess.Move.from_uci(move_input)  # Convert input to a move
+            move = chess.Move.from_uci(move_input) 
             if move in board.legal_moves:
                 update_board(board, move)
                 break
@@ -32,7 +32,6 @@ def user_input(board):
             print("Invalid input format. Please enter a move in UCI format (e.g., e2e4).")
 
 def main():
-    # Print introductory message
     print("=====================================================")
     print("             CS 290 Chess Bot Version 0.1            ")
     print("=====================================================")
@@ -43,28 +42,26 @@ def main():
     while player_color not in ['w', 'b']:
         player_color = input("Invalid input. Please enter 'w' for white or 'b' for black: ").strip().lower()
 
-    # Ask for optional FEN starting position
+    
     starting_FEN = input("Starting FEN position? (hit ENTER for standard starting position): ").strip()
     if starting_FEN:
         board = chess.Board(starting_FEN)
     else:
         board = chess.Board()  # Default starting position
 
-    # Main game loop
+   
     while not board.is_game_over():
         print_board(board)
 
         if (board.turn == chess.WHITE and player_color == 'w') or (board.turn == chess.BLACK and player_color == 'b'):
-            # Player's turn
             user_input(board)
         else:
-            # Bot's turn
             print("Bot is thinking...")
             bot_move = botMoves(board)
             update_board(board, bot_move)
             print(f"Bot played: {bot_move.uci()}")
 
-    # Game over
+    
     if board.is_checkmate():
         print("Checkmate!")
     elif board.is_stalemate():
