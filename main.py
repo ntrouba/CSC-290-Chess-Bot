@@ -47,7 +47,7 @@ def main():
     if starting_FEN:
         board = chess.Board(starting_FEN)
     else:
-        board = chess.Board()  # Default starting position
+        board = chess.Board() 
 
    
     while not board.is_game_over():
