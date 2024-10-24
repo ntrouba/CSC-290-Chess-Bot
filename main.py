@@ -37,7 +37,6 @@ def main():
     print("=====================================================")
     print("Time:", datetime.today().strftime('%Y-%m-%d %H:%M:%S'))
 
-    # Ask whether the player wants to be white or black
     player_color = input("Computer Player? (w=white/b=black): ").strip().lower()
     while player_color not in ['w', 'b']:
         player_color = input("Invalid input. Please enter 'w' for white or 'b' for black: ").strip().lower()
